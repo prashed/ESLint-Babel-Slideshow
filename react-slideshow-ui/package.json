@@ -1,0 +1,94 @@
+{
+  "name": "react-slideshow-ui",
+  "version": "1.2.1",
+  "author": "Masashi Hirano (https://github.com/shisama)",
+  "license": "MIT",
+  "description": "React UI Component for slideshow like SlideShare or SpeakerDeck.",
+  "main": "lib",
+  "homepage": "https://github.com/shisama/react-slideshow-ui",
+  "bugs": {
+    "url": "https://github.com/shisama/react-slideshow-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shisama/react-slideshow-ui.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "slideshow",
+    "slide",
+    "slides",
+    "slideshare",
+    "speakerdeck",
+    "presentation",
+    "keynote",
+    "powerpoint"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "build:demo": "NODE_ENV=development webpack",
+    "build:dll": "NODE_ENV=production webpack --config webpack.dll.config.js",
+    "build:all": "run-p lint test build:dll build:demo build",
+    "clean": "rimraf lib",
+    "test": "NODE_ENV=test jest --verbose --coverage",
+    "lint": "eslint . --ext .ts,tsx",
+    "prepublishOnly": "npm test && npm build",
+    "git-add": "git add lib demo dll",
+    "check-updates": "ncu"
+  },
+  "types": "lib/index.d.ts",
+  "peerDependencies": {
+    "react": "^15.0.0-0 || ^16.0.0-0"
+  },
+  "dependencies": {
+    "react": "^16.8.0",
+    "toggle-fullscreen": "^0.4.2"
+  },
+  "devDependencies": {
+    "@types/enzyme": "3.10.8",
+    "@types/enzyme-adapter-react-16": "1.0.5",
+    "@types/jest": "24.9.1",
+    "@types/react": "16.9.44",
+    "@types/react-dom": "16.9.10",
+    "@types/react-test-renderer": "16.9.1",
+    "@types/sinon": "7.0.13",
+    "@typescript-eslint/eslint-plugin": "2.14.0",
+    "@typescript-eslint/parser": "2.14.0",
+    "browser-env": "3.3.0",
+    "cache-loader": "4.1.0",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.2",
+    "enzyme-to-json": "3.4.3",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.9.0",
+    "eslint-config-standard": "14.1.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-node": "9.2.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-react": "7.17.0",
+    "eslint-plugin-standard": "4.0.0",
+    "jest": "24.8.0",
+    "npm-check-updates": "3.1.20",
+    "npm-run-all": "4.1.5",
+    "pre-commit": "1.2.2",
+    "prettier": "1.18.2",
+    "prop-types": "15.7.2",
+    "react-dom": "16.8.6",
+    "react-hot-loader": "4.12.10",
+    "react-test-renderer": "16.8.6",
+    "rimraf": "3.0.0",
+    "sinon": "7.4.1",
+    "thread-loader": "2.1.2",
+    "ts-jest": "24.0.2",
+    "ts-loader": "6.0.4",
+    "typescript": "3.7.4",
+    "webpack": "4.41.5",
+    "webpack-cli": "3.3.10"
+  },
+  "pre-commit": [
+    "build:all",
+    "git-add"
+  ]
+}
